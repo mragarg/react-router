@@ -5,6 +5,7 @@ import './App.css';
 import Home from './Home';
 import About from './About';
 import Cats from './Cats';
+import PageNotFound from './PageNotFound';
 
 import {
   Link, 
@@ -16,11 +17,13 @@ class App extends React.Component {
     super(props)
   
     this.state = {
-       counter: 0
+      //  counter: 0
     }
     // I definitely have access to the instance
     // I will use .bind to "lock in" the value of `this`
-    this._incrementCount = this._incrementCount.bind(this);
+
+    // this._incrementCount = this._incrementCount.bind(this);
+
     // Functions are callable objects.
     // As an object, they can have methods.
     // One of their methods is .bind
@@ -31,9 +34,9 @@ class App extends React.Component {
   render() {
     return(
       <div className="App">
-      <h1>{this.state.counter}</h1>
+      {/* <h1>{this.state.counter}</h1>
       <button onClick={this._incrementCount}>increment</button>
-      <button onClick={this._incrementCountArrow}>incrementArrow</button>
+      <button onClick={this._incrementCountArrow}>incrementArrow</button> */}
         {/* Link is what you use instead of an anchor */}
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
@@ -50,23 +53,23 @@ class App extends React.Component {
     )
   }
 
-  // normal method
-  _incrementCount() {
-    console.log("incrementCount was called");
-    console.log(this);
-    this.setState({
-      counter: this.state.counter + 1
-    });
-  }
+  // // normal method
+  // _incrementCount() {
+  //   console.log("incrementCount was called");
+  //   console.log(this);
+  //   this.setState({
+  //     counter: this.state.counter + 1
+  //   });
+  // }
 
-  // Arrow functions give you "auto .bind"
-  _incrementCountArrow = () => {
-    console.log("incrementCountArrow was called");
-    console.log(this);
-    this.setState({
-      counter: this.state.counter + 1
-    });
-  }
+  // // Arrow functions give you "auto .bind"
+  // _incrementCountArrow = () => {
+  //   console.log("incrementCountArrow was called");
+  //   console.log(this);
+  //   this.setState({
+  //     counter: this.state.counter + 1
+  //   });
+  // }
 
 
 }
