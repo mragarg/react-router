@@ -6,10 +6,13 @@ import Home from './Home';
 import About from './About';
 import Cats from './Cats';
 import PageNotFound from './PageNotFound';
+import Header from './Header';
 
 import {
   Link, 
-  Route
+  Route,
+  Switch, 
+  Redirect
 } from 'react-router-dom';
 
 class App extends React.Component {
@@ -39,15 +42,24 @@ class App extends React.Component {
       <button onClick={this._incrementCountArrow}>incrementArrow</button> */}
         {/* Link is what you use instead of an anchor */}
         <Link to="/">Home</Link>
+        <br />
         <Link to="/about">About</Link>
+        <br />
         <Link to="/cats">Cats</Link>
+        <br />
+        <Link to="/nowhere">This goes nowhere</Link>
 
-        {/* <Home /> */}
-        <Route exact path="/" component={Home} />
-        {/* <About /> */}
-        <Route path="/about" component={About} />
-        {/* <Cats /> */}
-        <Route path="/cats" component={Cats} />
+        <Header />
+        <Switch>
+          {/* <Home /> */}
+          <Route exact path="/" component={Home} />
+          {/* <About /> */}
+          <Route path="/about" component={About} />
+          {/* <Cats /> */}
+          <Route path="/cats" component={Cats} />
+          {/* <PageNotFound /> */}
+          <Route component={PageNotFound} />
+        </Switch>
 
       </div>
     )
